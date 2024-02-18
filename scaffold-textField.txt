@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(
+      home: new MyApp(),
+    ));
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String _value = '';
+  void _onChanged(String value) {
+    setState(() {
+      _value = 'changed....' + value;
+    });
+  }
+
+  void _onSubmitted(String value) {
+    setState(() {
+      _value = 'submitted...' + value;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Text Field'),
+      ),
+      body: Column(
+        children: <Widget>[
+          Text(_value),
+          TextField(
+            decoration: const InputDecoration(
+                labelText: 'Enter Name',
+                hintText: 'Hint',
+                icon: Icon(Icons.people)),
+            autocorrect: true,
+            onChanged: _onChanged,
+            onSubmitted: _onSubmitted,
+            keyboardType: TextInputType.text,
+          ),
+        ],
+      ),
+    );
+  }
+}

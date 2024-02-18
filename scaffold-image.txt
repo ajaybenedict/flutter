@@ -1,0 +1,39 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(
+      home: new MyApp(),
+    ));
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  double _volume = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Image'),
+        ),
+        body: Container(
+          height: 300,
+          width: double.infinity,
+          color: Colors.blue,
+          child: const Image(
+            image: AssetImage('image/KING9937.JPG'),
+            fit: BoxFit.cover,
+          ),
+        ));
+  }
+}
+
+/*****************************************
+pubspec.yaml
+
+Remove # from assets
+Remove # from image and set the image path
+*******************************************/

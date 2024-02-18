@@ -1,0 +1,47 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(
+      home: new MyApp(),
+    ));
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  double _volume = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Icon Button'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Center(
+            child: IconButton(
+              onPressed: () {
+                setState(() {
+                  _volume += 10;
+                });
+              },
+              icon: const Icon(Icons.volume_up),
+              iconSize: 50.0,
+              color: Colors.blue,
+            ),
+          ),
+          Text(
+            "Volume: $_volume",
+            style: const TextStyle(
+              fontSize: 25,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

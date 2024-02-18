@@ -1,0 +1,52 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(
+      home: new MyApp(),
+    ));
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Raised Button'),
+      ),
+      body: Center(
+        /*child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.red,
+            foregroundColor: Colors.limeAccent,
+          ),
+          onPressed: () {},
+          child: Text('Raised'),
+        ), */
+        child: ElevatedButton(
+          onPressed: () {},
+          child: Container(
+            padding: const EdgeInsets.all(10.0),
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: <Color>[
+                  Color(0xFF0D47A1),
+                  Color(0xFF197602),
+                  Colors.yellowAccent,
+                ],
+              ),
+            ),
+            child: const Text(
+              'Click Me',
+              style: TextStyle(fontSize: 30.0),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

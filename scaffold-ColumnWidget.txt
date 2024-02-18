@@ -1,0 +1,85 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(
+      home: new MyApp(),
+    ));
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Ajay- Demo'),
+          /*leading: IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: () {
+              print('Clicked Me');
+            }),*/
+          actions: <Widget>[
+            IconButton(
+              onPressed: () {
+                print('clicked icon');
+              },
+              icon: const Icon(Icons.search),
+            ),
+            IconButton(
+              onPressed: () {
+                print('clicked more');
+              },
+              icon: const Icon(Icons.more_vert_rounded),
+            )
+          ],
+          flexibleSpace: const SafeArea(
+            child: Icon(
+              Icons.camera,
+              color: Colors.white,
+              size: 40.0,
+            ),
+          ),
+          bottom: PreferredSize(
+            preferredSize: Size.fromHeight(75),
+            child: Container(
+              color: Colors.grey,
+              height: 75.0,
+              width: double.infinity,
+              child: const Text('Iam Ajay',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25.0,
+                  )),
+            ),
+          ),
+        ),
+        body: Container(
+            height: 1000,
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  color: Colors.red,
+                  height: 75,
+                  width: 75,
+                ),
+                Container(
+                  color: Colors.green,
+                  height: 75,
+                  width: 75,
+                ),
+                Container(
+                  color: Colors.blue,
+                  height: 75,
+                  width: 75,
+                ),
+              ],
+            )));
+  }
+}

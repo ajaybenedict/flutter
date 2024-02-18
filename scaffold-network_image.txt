@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(
+      home: new MyApp(),
+    ));
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Image'),
+      ),
+      body: Center(
+        child: Container(
+          height: 200,
+          width: 300,
+          decoration: BoxDecoration(
+            border: Border.all(width: 2.0),
+            borderRadius: BorderRadius.circular(5.0),
+            image: const DecorationImage(
+              image: NetworkImage(
+                'https://i.pinimg.com/1200x/33/ce/89/33ce89962ef00ed32035aca4d355a756.jpg',
+              ),
+              fit: BoxFit.fill,
+            ),
+          ),
+          /*child: Image.network(
+            'https://i.pinimg.com/1200x/33/ce/89/33ce89962ef00ed32035aca4d355a756.jpg',
+            fit: BoxFit.fill,
+          ),*/
+          child: const Text(
+            'Roses',
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 35.0,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

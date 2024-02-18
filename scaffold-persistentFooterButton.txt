@@ -1,0 +1,147 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MaterialApp(
+      home: MyApp(),
+    ));
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Ajay- Demo'),
+        /*leading: IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: () {
+              print('Clicked Me');
+            }),*/
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {
+              print('clicked icon');
+            },
+            icon: const Icon(Icons.search),
+          ),
+          IconButton(
+            onPressed: () {
+              print('clicked more');
+            },
+            icon: const Icon(Icons.more_vert_rounded),
+          )
+        ],
+        flexibleSpace: const SafeArea(
+          child: Icon(
+            Icons.camera,
+            color: Colors.white,
+            size: 40.0,
+          ),
+        ),
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(75),
+          child: Container(
+            color: Colors.grey,
+            height: 75.0,
+            width: double.infinity,
+            child: Text('Iam Ajay',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 25.0,
+                )),
+          ),
+        ),
+      ),
+      body: const Center(
+        child: Text(
+          'Ajay Here',
+          style: TextStyle(
+            fontSize: 28.0,
+            color: Colors.green,
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        elevation: 10.0,
+        onPressed: () {
+          print('clicked Floating button');
+        },
+        child: const Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      drawer: const Drawer(
+        elevation: 16.0,
+        child: Column(
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text('Ajay'),
+              accountEmail: Text('ajay@gmail.com'),
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Text('ABC'),
+              ),
+              otherAccountsPictures: <Widget>[
+                CircleAvatar(backgroundColor: Colors.white, child: Text('xyz')),
+              ],
+            ),
+            ListTile(
+              title: Text('All Inbox'),
+              leading: Icon(Icons.mail),
+            ),
+            Divider(
+              height: 0.1,
+            ),
+            ListTile(
+              title: Text('Primary'),
+              leading: Icon(Icons.inbox),
+            ),
+            Divider(
+              height: 0.1,
+            ),
+            ListTile(
+              title: Text('Social'),
+              leading: Icon(Icons.people),
+            ),
+            Divider(
+              height: 0.1,
+            ),
+            ListTile(
+              title: Text('promotion'),
+              leading: Icon(Icons.local_offer),
+            ),
+            Divider(
+              height: 0.1,
+            ),
+          ],
+        ),
+      ),
+      persistentFooterButtons: <Widget>[
+        ElevatedButton(
+          onPressed: () {
+            print('raised button clicked');
+          },
+          style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.green,
+              elevation: 20.0,
+              shadowColor: Colors.black),
+          child: const Icon(Icons.add),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            print('raised button clicked');
+          },
+          style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.orange,
+              elevation: 20.0,
+              shadowColor: Colors.black),
+          child: const Icon(Icons.clear),
+        ),
+      ],
+    );
+  }
+}

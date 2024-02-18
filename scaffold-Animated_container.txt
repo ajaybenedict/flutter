@@ -1,0 +1,102 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MaterialApp(
+    home: MyApp(),
+  ));
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  var _width = 0.0, _height = 0.0, _border = 0.0, _borderRadius = 0.0;
+
+  AnimationFunction() {
+    setState(() {
+      _width = _width == 0 ? 200.0 : 0;
+      _height = _height == 0 ? 200.0 : 0;
+    });
+  }
+
+  changeBorder() {
+    setState(() {
+      _border = _border == 0.0 ? 20.0 : 0.0;
+    });
+  }
+
+  changeBorderRadius() {
+    setState(() {
+      _borderRadius = _borderRadius == 0.0 ? 100.0 : 0.0;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Animated Container'),
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        padding: EdgeInsets.all(15.0),
+        child: Column(
+          children: [
+            AnimatedContainer(
+              duration: const Duration(
+                seconds: 2,
+              ),
+              curve: Curves.easeInCirc,
+              height: _height,
+              width: _width,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(_borderRadius),
+                  color: Colors.amber,
+                  border: Border.all(
+                    color: Colors.red,
+                    width: _border,
+                  )),
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  AnimationFunction();
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.brown,
+                ),
+                child: const Text(
+                  'Click Me',
+                  style: TextStyle(color: Colors.white),
+                )),
+            ElevatedButton(
+                onPressed: () {
+                  changeBorder();
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                ),
+                child: const Text(
+                  'Border',
+                  style: TextStyle(color: Colors.white),
+                )),
+            ElevatedButton(
+                onPressed: () {
+                  changeBorderRadius();
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                ),
+                child: const Text(
+                  'Border Radius',
+                  style: TextStyle(color: Colors.white),
+                )),
+          ],
+        ),
+      ),
+    );
+  }
+}
